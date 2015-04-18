@@ -1,0 +1,23 @@
+<template>
+  <div class="container-fluid">
+    <h1>SystemJS Dependency Viewer</h1>
+    <div class="row">
+      <textarea value.bind="config">
+      </textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div id="chart_placeholder">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label repeat.for="package of allPackages" style="display: block">
+          <input type="checkbox" value.bind="package" checked.bind="$parent.selectedPackages" />
+          ${package}
+        </label>
+      </div>
+    </div>
+    <h1>Acknowledgements</h1>
+    <p>Francois Zaninotto's <a href="http://www.redotheweb.com/DependencyWheel/">dependency wheel</a></p>
+  </div>
+</template>
