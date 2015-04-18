@@ -39,7 +39,7 @@ export class App {
 
     this.data = buildDataFromSystemJSMap(map);
     this.allPackages = this.data.packageNames;
-    this.selectedPackages = this.data.packageNames.filter(name => !/jspm\/nodelibs/.test(name));
+    this.selectedPackages = this.data.packageNames.filter(name => !/jspm\/nodelibs/.test(name) && !/browserify/.test(name));
     this.dispose = this.observerLocator.getArrayObserver(this.selectedPackages)
       .subscribe(this.selectedPackagesChanged.bind(this));
   }
@@ -71,7 +71,7 @@ export class App {
   }
 
   attached() {
-    this.render();
+    this.selectedPackagesChanged();
   }
 
   render() {
